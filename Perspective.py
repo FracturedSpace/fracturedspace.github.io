@@ -23,7 +23,7 @@ while True:
     # clear_console()
     display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",  target="results", append = False)
     data = {
-    "content": timesincestart/timebetween*100,
+    "content": str(timesincestart/timebetween*100),
     "username": "My Python Bot"
     }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
