@@ -25,7 +25,7 @@ while True:
     # clear_console()
     display(str(currentyear) + " is " + str(difference) + "% complete.",  target="results", append = False)
     data = {
-    "content": str(currentyear) + " is " + str(round(difference,2)) + "% complete.",
+    "content": str(currentyear) + " is " + str(round(difference,2)) + "% complete." + round(difference*100, 2)%1==0,
     "username": "Perspective Checker"
     }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
@@ -33,5 +33,6 @@ while True:
         display(response.status_code, append = False)
     
     time.sleep(.01)
+
 
 
