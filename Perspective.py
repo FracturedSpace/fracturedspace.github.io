@@ -5,7 +5,7 @@ import requests
 url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
 
 
-print(response.status_code)
+
 async def send_webhook(data):
     url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
     payload = {"type": 1,"event": {"type": "LOBBY_MESSAGE_CREATE", "timestamp": time.time(), "data": data}, "status": "success"}
@@ -47,6 +47,7 @@ while True:
     }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
         response = requests.post(url, json=data)
+        display(response.status_code, append = False)
         time.sleep(10)
     
     time.sleep(.01)
