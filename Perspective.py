@@ -21,9 +21,9 @@ while True:
     timesincestart = currenttime-time.mktime(time.strptime(str(currentyear), "%Y"))
 
     # clear_console()
-    display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",  target="results", append = False)
+    display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + "% complete.",  target="results", append = False)
     data = {
-    "content": str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",
+    "content": str(currentyear) + " is " + str(timesincestart/timebetween*100) + "% complete.",
     "username": "Perspective Checker"
     }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
