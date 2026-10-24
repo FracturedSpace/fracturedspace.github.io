@@ -2,7 +2,7 @@ import time
 from pyscript import display
 import requests
 
-url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
+urls = {"Fracture Dev":"https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"}
 
 
 
@@ -21,16 +21,17 @@ while True:
     timesincestart = currenttime-time.mktime(time.strptime(str(currentyear), "%Y"))
     difference = timesincestart/timebetween*100
     
-    funnydata = (.01*timebetween)/60/60/24
     # clear_console()
-    display(str(currentyear) + " is " + str(difference) + "% complete. " + str((round(difference*100, 2)%1==0)) + " " + str(funnydata),  target="results", append = False)
+    display(str(currentyear) + " is " + str(difference) + "% complete.",  target="results", append = False)
     data = {
-    "content": str(currentyear) + " is " + str(round(difference,2)) + "% complete. " + str((round(difference*100, 2)%1==0)),
+    "content": str(currentyear) + " is " + str(round(difference)) + ".0% complete. ",
     "username": "Perspective Checker"
     }
-    if round(timesincestart/timebetween*100, 2)%1==0:
-        response = requests.post(url, json=data)
+    if round(timesincestart/timebetween*100)==round(timesincestart/timebetween*100,5) or True:
+        for url in urls:
+            response = requests.post(url, json=data)
         display(response.status_code, append = False)
+        time.sleep(30)
     
     time.sleep(.01)
 
