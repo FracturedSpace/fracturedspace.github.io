@@ -21,7 +21,7 @@ while True:
     timesincestart = currenttime-time.mktime(time.strptime(str(currentyear), "%Y"))
     difference = timesincestart/timebetween*100
     
-    funnydata = (.0025*timebetween)/60/60/24
+    funnydata = (.01*timebetween)/60/60/24
     # clear_console()
     display(str(currentyear) + " is " + str(difference) + "% complete. " + str((round(difference*100, 2)%1==0)) + " " + str(funnydata),  target="results", append = False)
     data = {
