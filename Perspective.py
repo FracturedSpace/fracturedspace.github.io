@@ -1,9 +1,11 @@
 import time
 from pyscript import display
-from pyodide.http import pyfetch
-import json
-import asyncio
+import requests
 
+url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
+
+
+print(response.status_code)
 async def send_webhook(data):
     url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
     payload = {"type": 1,"event": {"type": "LOBBY_MESSAGE_CREATE", "timestamp": time.time(), "data": data}, "status": "success"}
@@ -39,9 +41,12 @@ while True:
 
     # clear_console()
     display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",  target="results", append = False)
-    
+    data = {
+    "content": timesincestart/timebetween*100,
+    "username": "My Python Bot"
+    }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
-        asyncio.ensure_future(send_webhook(timesincestart/timebetween*100))
+        response = requests.post(url, json=data)
         time.sleep(10)
     
     time.sleep(.01)
