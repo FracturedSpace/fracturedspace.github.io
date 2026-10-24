@@ -26,7 +26,7 @@ while True:
     "content": str(currentyear) + " is " + str(round(difference)) + ".0% complete. ",
     "username": "Perspective Checker"
     }
-    if round(timesincestart/timebetween*100)==round(timesincestart/timebetween*100,5) or True:
+    if round(timesincestart/timebetween*100)==round(timesincestart/timebetween*100,5):
         for url in urls:
             response = requests.post(urls[url], json=data)
         display(response.status_code, append = False)
