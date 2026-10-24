@@ -40,7 +40,7 @@ while True:
     # clear_console()
     display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.", append = False)
     
-    if round(timesincestart/timebetween*100, 2):
+    if round(timesincestart/timebetween*100, 2)%1==0:
         asyncio.ensure_future(send_webhook())
     
     time.sleep(.01)
