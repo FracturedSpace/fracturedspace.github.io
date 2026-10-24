@@ -23,8 +23,8 @@ while True:
     # clear_console()
     display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",  target="results", append = False)
     data = {
-    "content": str(timesincestart/timebetween*100),
-    "username": "My Python Bot"
+    "content": str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",
+    "username": "Perspective Checker"
     }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
         response = requests.post(url, json=data)
