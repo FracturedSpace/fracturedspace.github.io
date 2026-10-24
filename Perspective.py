@@ -23,13 +23,12 @@ while True:
     # clear_console()
     display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + "% complete.",  target="results", append = False)
     data = {
-    "content": str(currentyear) + " is " + str(timesincestart/timebetween*100) + "% complete.",
+    "content": str(currentyear) + " is " + round(str(timesincestart/timebetween*100),2) + "% complete.",
     "username": "Perspective Checker"
     }
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
         response = requests.post(url, json=data)
         display(response.status_code, append = False)
-        time.sleep(10)
     
     time.sleep(.01)
 
