@@ -21,14 +21,14 @@ while True:
     timesincestart = currenttime-time.mktime(time.strptime(str(currentyear), "%Y"))
     difference = timesincestart/timebetween*100
     
-
+    funnydata = (.0025*timebetween)/60/60/24
     # clear_console()
-    display(str(currentyear) + " is " + str(difference) + "% complete.",  target="results", append = False)
+    display(str(currentyear) + " is " + str(difference) + "% complete. " + str((round(difference*100, 2)%1==0)) + " " + str(funnydata),  target="results", append = False)
     data = {
-    "content": str(currentyear) + " is " + str(round(difference,2)) + "% complete." + str((round(difference*100, 2)%1==0)),
+    "content": str(currentyear) + " is " + str(round(difference,2)) + "% complete. " + str((round(difference*100, 2)%1==0)),
     "username": "Perspective Checker"
     }
-    if round(timesincestart/timebetween*100, 2)%1==0 or True:
+    if round(timesincestart/timebetween*100, 2)%1==0:
         response = requests.post(url, json=data)
         display(response.status_code, append = False)
     
