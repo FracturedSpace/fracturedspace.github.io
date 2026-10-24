@@ -6,7 +6,7 @@ import asyncio
 
 async def send_webhook(data):
     url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
-    payload = {"event": data, "status": "success"}
+    payload = {"type": 1,"event": {"type": "LOBBY_MESSAGE_CREATE", "timestamp": time.time(), "data": data}, "status": "success"}
     
     response = await pyfetch(
         url,
