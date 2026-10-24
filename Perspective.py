@@ -29,7 +29,7 @@ while True:
     }
     if round(timesincestart/timebetween*100)==round(timesincestart/timebetween*100,5) or True:
         for url in urls:
-            response = requests.post(url, json=data)
+            response = requests.post(url.value, json=data)
         display(response.status_code, append = False)
         time.sleep(30)
     
