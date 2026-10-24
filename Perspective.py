@@ -17,7 +17,7 @@ while True:
     timesincestart = currenttime-time.mktime(time.strptime(str(currentyear), "%Y"))
 
     # clear_console()
-    print("\033c" + str(currentyear) + " is " + str(timesincestart/timebetween*100) + "% complete.")
+    print("<p>\033c" + str(currentyear) + " is " + str(timesincestart/timebetween*100) + "% complete.</p>")
     time.sleep(.01)
 
 
