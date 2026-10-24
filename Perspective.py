@@ -6,25 +6,6 @@ url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8k
 
 
 
-async def send_webhook(data):
-    url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
-    payload = {"type": 1,"event": {"type": "LOBBY_MESSAGE_CREATE", "timestamp": time.time(), "data": data}, "status": "success"}
-    
-    response = await pyfetch(
-        url,
-        method="POST",
-        headers={"Content-Type": "application/json"},
-        body=json.dumps(payload)
-    )
-    
-    if response.ok:
-        data = await response.json()
-        print("Webhook sent successfully:", data)
-    else:
-        print(f"Failed to send webhook: {response.status}")
-
-# Run the async function
-
 
 while True:
 
