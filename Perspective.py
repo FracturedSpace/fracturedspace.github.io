@@ -4,9 +4,9 @@ from pyodide.http import pyfetch
 import json
 import asyncio
 
-async def send_webhook():
+async def send_webhook(data):
     url = "https://discord.com/api/webhooks/1563625952863326335/9bsbdv0m8LybMcRHRc8kBvom7sZ3gBI9BlUb1nWv5t5NbDbDsFiYv0LZ-CxHcQ1JldOh"
-    payload = {"event": "$results", "status": "success"}
+    payload = {"event": "$data", "status": "success"}
     
     response = await pyfetch(
         url,
@@ -41,7 +41,7 @@ while True:
     display(str(currentyear) + " is " + str(timesincestart/timebetween*100) + " complete.",  target="results", append = False)
     
     if round(timesincestart/timebetween*100, 2)%1==0 or True:
-        asyncio.ensure_future(send_webhook())
+        asyncio.ensure_future(send_webhook(timesincestart/timebetween*100))
         time.sleep(10)
     
     time.sleep(.01)
