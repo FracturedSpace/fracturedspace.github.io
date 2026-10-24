@@ -1,13 +1,4 @@
-import time, os
-
-def clear_console():
-    # Check the operating system name
-    if os.name == 'nt':
-        # Command for Windows
-        _ = os.system('cls')
-    else:
-        # Command for Linux, macOS, and other POSIX systems
-        _ = os.system('clear')
+import time
 
 # Call the function to clear the console
 
