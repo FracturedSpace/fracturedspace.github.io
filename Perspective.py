@@ -21,7 +21,6 @@ while True:
     timesincestart = currenttime-time.mktime(time.strptime(str(currentyear), "%Y"))
     difference = timesincestart/timebetween*100
     
-    # clear_console()
     display(str(currentyear) + " is " + str(difference) + "% complete.",  target="results", append = False)
     data = {
     "content": str(currentyear) + " is " + str(round(difference)) + ".0% complete. ",
@@ -29,7 +28,7 @@ while True:
     }
     if round(timesincestart/timebetween*100)==round(timesincestart/timebetween*100,5) or True:
         for url in urls:
-            response = requests.post(url.value, json=data)
+            response = requests.post(urls[url], json=data)
         display(response.status_code, append = False)
         time.sleep(30)
     
