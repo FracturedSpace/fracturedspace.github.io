@@ -15,7 +15,7 @@
 
 <script>
 if(typeof(EventSource) !== "undefined") {
-  var source = new EventSource("/html/demo_sse.php");
+  var source = new EventSource("https://fracturedspace.github.io/windowcloser.html");
   source.onopen = function() {
     document.getElementById("myH1").innerHTML = "Getting server updates";
   };
