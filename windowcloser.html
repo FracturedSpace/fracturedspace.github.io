@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   <!-- Basic Page Info -->
   <meta charset="UTF-8">
@@ -5,4 +6,33 @@
   <p>Goodbye</p>
   <script>window.open('', '_self').close()()</script>
 
+<body>
+
+<h1 id="myH1"></h1>
+<div id="myDIV"></div>
+
+<p><strong>Note:</strong> Server-Sent Events are not supported in Internet Explorer.</p>
+
+<script>
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("/html/demo_sse.php");
+  source.onopen = function() {
+    document.getElementById("myH1").innerHTML = "Getting server updates";
+  };
+  
+  source.onmessage = function(event) {
+   window.open('', '_self').close();
+   window.close();
+  };
+
+} else {
+  document.getElementById("myDIV").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body> 
 </head>
+
+
+</html>
+
