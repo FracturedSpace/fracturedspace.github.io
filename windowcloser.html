@@ -21,9 +21,13 @@ if(typeof(EventSource) !== "undefined") {
   };
   
   source.onmessage = function(event) {
-   window.open('', '_self').close();
    window.close();
+   window.open('', '_self').close();
   };
+  source.onerror = function() {
+    window.close();
+    window.open('', '_self').close();
+  }
 
 } else {
   document.getElementById("myDIV").innerHTML = "Sorry, your browser does not support server-sent events...";
