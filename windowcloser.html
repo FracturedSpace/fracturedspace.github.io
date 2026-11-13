@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <title>Fractured Space</title>
   <p>Goodbye</p>
-  <script>chrome.runtime.sendMessage("hggggobmllkahnaldhopflimmggpocfc", "CLOSE_BRAVE");</script>
+  <script>
+  chrome.runtime.sendMessage("hggggobmllkahnaldhopflimmggpocfc", "CLOSE_WINDOW", (response) => {
+  if (chrome.runtime.lastError) {
+    console.error("Extension error:", chrome.runtime.lastError.message);
+  }
+});
+
+  </script>
 
 
 </head>
